@@ -28,3 +28,4 @@ Given the login page is displayed
    Given the login page is displayed
   When I attempt to navigate to the cat managment page
   Then I am presented with the login page
+
