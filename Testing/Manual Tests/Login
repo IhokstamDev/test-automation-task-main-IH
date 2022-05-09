@@ -1,0 +1,30 @@
+Feature: Login functionality
+  As a user
+  In order to login in Supermetrics Kitty Manager webpage 
+  I need to login with valid username and password
+
+Scenario: Logging in with invalid credentials
+ Given the login page is displayed
+  When I fill the account email textbox with value 'incorrectusername'
+   And I fill the password textbox with value 'incorrectpassword'
+   And I click the login button
+  Then I should not be able to login
+
+Scenario: Logging in as admin user with valid credentials
+Given the login page is displayed
+  When I fill the account email textbox with value 'admin'
+   And I fill the password textbox with value 'adminpass'
+   And I click the login button
+  Then I should view the cat management page
+
+  Scenario: Logging in as normal user with valid credentials
+Given the login page is displayed
+  When I fill the account email textbox with value 'user'
+   And I fill the password textbox with value 'helloworld'
+   And I click the login button
+  Then I should view the cat management page
+
+   Scenario: When not logged-in, only the login page can be visited by a user
+   Given the login page is displayed
+  When I attempt to navigate to the cat managment page
+  Then I am presented with the login page

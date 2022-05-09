@@ -1,0 +1,16 @@
+Feature: Reset functionality
+  As a user
+  Given when I click the reset button or hit reset API
+  Then aany cat list changes should revert back to default setting
+
+  Scenario: Reset app data via API
+ Given I am logged in as a user
+ When I rename the cat 'James' to 'JamesUpdated'
+  And I then perform API command GET `localhost:3000/api/reset`
+  Then the cat renamed 'JamesUpdated" reverts back to 'James'
+
+  Scenario: Reset app data via reset button
+ Given I am logged in as a user
+ When I rename the cat 'James' to 'JamesUpdated'
+  And I then click the `Reset` button 
+  Then the cat renamed 'JamesUpdated" reverts back to 'James'

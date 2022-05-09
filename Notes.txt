@@ -1,0 +1,7 @@
+In this repo assignment 3 additional folders have been added with accompanying tests for the Supermetrics Kitty Manager. The below folders are:
+
+1. Automated Tests - Cypress tests to test functionality/behaviour of Supermetrics Kitty Manager. 
+   To install cypress type the command: yarn add cypress --dev
+   To run the tests type the command: yarn run cypress open
+2. Manual Tests - Tests written in Gherkin format based on specification i.e. Give When Then
+3. Peformance tests written in K6 - Install K6 and run command k6 run PerfTestLoginPage.js

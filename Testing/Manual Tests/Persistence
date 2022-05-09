@@ -1,0 +1,20 @@
+Feature: Persistence functionality
+  As a user
+  Given when I log in and out of a session and back in a new session
+  Then the cat list should remain the same
+
+ Scenario: Deletion of cat in a cat list is persisted between admin user visits to the app
+ Given I am logged in as an admin user
+  When I delete a cat from the cat management page
+  And I log out
+  And log back in as an admin user
+   And I click the login button
+   the cat that was deleted remains deleted from the list
+
+Scenario: Deletion of cat in a cat list is persisted between normal user visits to the app
+ Given I am logged in as an normal user
+  When I delete a cat from the cat management page
+  And I log out
+  And log back in as an admin user
+   And I click the login button
+   the cat that was deleted remains deleted from the list

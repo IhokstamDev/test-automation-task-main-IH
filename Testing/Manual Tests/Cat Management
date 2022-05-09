@@ -1,0 +1,72 @@
+Feature: Cat Management functionality
+  As a user
+  When I log in Supermetrics Kitty Manager webpage 
+  I can view, delete or edit cats and their data which includes name, picture, awesomeness rating and rank
+
+
+Scenario: Admin users are able to delete cats from the list
+ Given I am logged in as an admin user
+  When I navigate to the cat management page
+  and I delete the 1st cat on the list
+  Then the deleted cat should not be displayed any longer on the cat management page
+
+Scenario: Normal users are not able to delete cats from the list
+ Give I am logged in successfully as a normal user
+  When I navigate to the cat management page
+  and I try to delete the 1st cat on the list
+  Then I am unable to do so
+
+ Scenario: Rename cat as normal user
+ Given I am logged in successfully as a normal user
+ When I rename the cat 'James' to 'JamesUpdated'
+  Then the cat name is now shown as 'JamesUpdated'
+
+Scenario: Rename cat as admin user
+ Given I am logged in successfully as an admin user
+ When I rename the cat 'James' to 'JamesUpdated'
+  Then the cat name is now shown as 'JamesUpdated'
+
+Scenario: Rename 2nd cat the same name as 1st cat as admin user
+ Given I am logged in successfully as an admin user
+ When I rename the 2nd cat on the list the same as 1st cat using the name 'James'
+  Then the page refuses me to change the name
+
+  Scenario: Rename 2nd cat the same name as 1st cat as normal user
+ Given I am logged in successfully as an normal user
+ When I rename the 2nd cat on the list the same as 1st cat using the name 'James'
+  Then the page refuses me to change the name
+
+  Scenario: Cat displays name, pictures, awesomeness rating and rank as admin user
+ Given I am logged in successfully as an admin user
+ When I navigate to the cats management page
+  Then I am able to view cat name
+  And picture
+  AND awesomeness rating 
+  AND rank
+
+    Scenario: Cat displays name, pictures, awesomeness rating and rank as normal user
+ Given I am logged in successfully as an normal user
+ When I navigate to the cats management page
+  Then I am able to view cat name
+  And picture
+  AND awesomeness rating 
+  AND rank
+  
+ Scenario: Awesomeness is value infinite for cat with name of 'James' as admin user
+ Given I am logged in successfully as an admin user
+ When I navigate to the cats management page 
+ AND cats name is 'James'
+Then awesomeness rating is infinite
+
+Scenario: Awesomeness is calculated as the sum of the ASCII character codes for the letters of the cats name other than 'James'
+ Given I am logged in successfully as an admin user
+ When I navigate to the cats management page 
+ AND cats name is not 'James'
+Then awesomeness rating is sum of ASCII character codes for letters of cats names
+
+Scenario: The cats are presented in descending order of awesomeness.
+ Given I am logged in successfully as an admin user
+ When I navigate to the cats management page 
+ AND cats view cats awesomeness rating
+Then awesomeness rating is listed as largest at top and lowest at bottom i.e. descending
+
