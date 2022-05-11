@@ -1,4 +1,10 @@
-In this repo assignment 3 additional folders have been added with accompanying tests for the Supermetrics Kitty Manager. The below folders are:
+## Running the Tests
+
+1. Install dependencies with `yarn`
+
+Ensure Next.js app is running by typing yarn dev in a shell.
+
+In this repo assignment 3 additional folders have been created with accompanying tests for the Supermetrics Kitty Manager. The below folders are:
 
 1. Automated Tests - Cypress tests to test functionality/behaviour of Supermetrics Kitty Manager. 
    To install cypress type the command: yarn add cypress --dev

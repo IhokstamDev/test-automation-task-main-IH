@@ -1,4 +1,5 @@
 {
     "fixturesFolder": "Testing/Automated Tests",
-    "integrationFolder": "Testing/Automated Tests"
+    "integrationFolder": "Testing/Automated Tests",
+    "testFiles": "**/*.{feature,features}"
 }
