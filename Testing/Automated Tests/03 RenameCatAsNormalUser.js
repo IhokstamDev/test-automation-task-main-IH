@@ -1,16 +1,18 @@
 import { Given, When, Then } from 'cypress-cucumber-preprocessor/steps'
 
+const SUBMIT_BUTTON_SELECTOR = '.sc-kstqJO';
+
 Given('User is at the login page', () => {
-    cy.visit('http://localhost:3000')
+    cy.visit('http://localhost:3007')
 })
 
-When('User enters username as {string} and password as {string}', (username, password) => {
-    cy.get('#username').type(username)
-    cy.get('#password').type(password)
+When('User enters username as normal user and password', () => {
+    cy.get('#username').type('user')
+    cy.get('#password').type(Cypress.env('passwordnormal'))
 })
 
 And('User clicks on login button', () => {
-    cy.get('.sc-kstqJO').click()
+    cy.get(SUBMIT_BUTTON_SELECTOR).click()
 })
 
 And('User renames cat as normal user', () => {

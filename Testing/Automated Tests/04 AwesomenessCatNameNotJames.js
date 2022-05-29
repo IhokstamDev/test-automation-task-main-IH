@@ -1,16 +1,18 @@
 import { Given, When, Then } from 'cypress-cucumber-preprocessor/steps'
 
+const SUBMIT_BUTTON_SELECTOR = '.sc-kstqJO';
+
 Given('User is at the login page', () => {
     cy.visit('http://localhost:3000')
 })
 
 When('User logs in', () => {
     cy.get('#username').type('admin')
-    cy.get('#password').type('adminpass')
+    cy.get('#password').type(Cypress.env('passwordadmin'), { log: false })
 })
 
 And('User clicks on login button', () => {
-    cy.get('.sc-kstqJO').click()
+    cy.get('SUBMIT_BUTTON_SELECTOR').click()
 })
 
 //https://stackoverflow.com/questions/52430983/how-do-you-check-the-equality-of-the-inner-text-of-a-element-using-cypress

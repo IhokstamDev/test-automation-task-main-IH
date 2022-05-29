@@ -7,7 +7,21 @@ Ensure Next.js app is running by typing yarn dev in a shell.
 In this repo assignment 3 additional folders have been created with accompanying tests for the Supermetrics Kitty Manager. The below folders are:
 
 1. Automated Tests - Cypress tests to test functionality/behaviour of Supermetrics Kitty Manager. 
-   To install cypress type the command: yarn add cypress --dev
    To run the tests type the command: yarn run cypress open
+
 2. Manual Tests - Tests written in Gherkin format based on specification i.e. Give When Then
-3. Peformance tests written in K6 - Install K6 and run command k6 run PerfTestLoginPage.js
+
+3. Peformance tests written in K6 - Install K6 to run the performance tests. Go to https://k6.io/ for information on installing and setting up K6.
+Run command - k6 run PerfTestLoginPage.js to run the the peformance test.
+The test PerfTestLoginPage.js works as follows - it simulates a progressive ramp-up from 0 to 15 virtual users (VUs) for duration of ten seconds. Then the 15 virtual users will remain at 15 VUs 20 seconds, and finally, it will ramp down over a duration of 10 seconds to 0 virtual use.
+A performance goal is set in terms of a performance threshold where 95th percentile response time is below 5000 ms (5 seconds).
+If results 90% of response if more than 5000 ms then the test returns a fail (non-zero exit code) otherwise a pass (zero exit code)
+
+4. The account password hardcoding has been removed. You can set the password in cypress.env.json file. 
+To avoid storing the account password in the repro it has been added to .gitignore file.
+To set up password add snippit below for example for admin password
+ {
+    "admin_username": "admin",
+    "admin_password": ""
+ }
+
